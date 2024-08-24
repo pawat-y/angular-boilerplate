@@ -4,5 +4,10 @@ import { NotFoundComponent } from './shared/components/not-found/not-found.compo
 
 export const routes: Routes = [
   { path: '', title: 'Angular Boilerplate', component: HomeComponent },
-  { path: '**', pathMatch: 'full', component: NotFoundComponent },
+  {
+    path: '**',
+    pathMatch: 'full',
+    title: 'Page Not Found',
+    component: NotFoundComponent,
+  },
 ];
