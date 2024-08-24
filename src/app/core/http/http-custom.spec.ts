@@ -6,7 +6,7 @@ import { TestBed } from '@angular/core/testing';
 import {
   BLOB_RESPONSE_MOCK,
   HTTP_RESPONSE_MOCK,
-} from '../mocks/http-custom.mock';
+} from '../../tests/mocks/http-custom.mock';
 import { HttpCustom } from './http-custom';
 
 describe('HttpCustom', () => {
