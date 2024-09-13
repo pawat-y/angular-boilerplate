@@ -1,13 +1,11 @@
-import {
-  HttpClientTestingModule,
-  HttpTestingController,
-} from '@angular/common/http/testing';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import {
   BLOB_RESPONSE_MOCK,
   HTTP_RESPONSE_MOCK,
 } from '../../tests/mocks/http-custom.mock';
 import { HttpCustom } from './http-custom';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('HttpCustom', () => {
   let service: HttpCustom;
@@ -15,9 +13,9 @@ describe('HttpCustom', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      providers: [HttpCustom],
-    });
+    imports: [],
+    providers: [HttpCustom, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+});
     service = TestBed.inject(HttpCustom);
     httpMock = TestBed.inject(HttpTestingController);
 
